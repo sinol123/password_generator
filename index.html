@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="epl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="output">
+            <input type="text">
+            <input value="refresh" type="button">
+            <input type="button" value="kopiuj">
+        </div>
+        
+        <div id="passwordLength"><div id="lengthInfo">długość hasła: 12</div>
+            <input type="button" value="-" id="minus" onclick="changeLength('minus')">
+            <input type="range" min="1" value="12" max="50" id="range" onchange="changeLength(value)">
+            <input type="button" value="+" id="plus" onclick="changeLength('plus')">
+        </div>
+
+        <div class="characterCheckbox">Użyte znaki:</div>
+        <div class="characterCheckbox">ABC <input type="checkbox" checked></div>
+        <div class="characterCheckbox">abc <input type="checkbox" checked></div>
+        <div class="characterCheckbox">123 <input type="checkbox" checked></div>
+        <div class="characterCheckbox">#@% <input type="checkbox"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
