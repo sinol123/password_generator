@@ -21,10 +21,10 @@
         </div>
 
         <div class="characterCheckbox">Użyte znaki:</div>
-        <div class="characterCheckbox">ABC <input type="checkbox" checked></div>
-        <div class="characterCheckbox">abc <input type="checkbox" checked></div>
-        <div class="characterCheckbox">123 <input type="checkbox" checked></div>
-        <div class="characterCheckbox">#@% <input type="checkbox"></div>
+        <div class="characterCheckbox">ABC <input type="checkbox" checked  onchange="changeStatus(0), generatePassword(length)"></div>
+        <div class="characterCheckbox">abc <input type="checkbox" checked onchange="changeStatus(1), generatePassword(length)"></div>
+        <div class="characterCheckbox">123 <input type="checkbox" checked onchange="changeStatus(2), generatePassword(length)"></div>
+        <div class="characterCheckbox">#@% <input type="checkbox" onchange="changeStatus(3), generatePassword(length)"></div>
     </div>
     <script src="script.js"></script>
 </body>
