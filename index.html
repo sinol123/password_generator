@@ -9,8 +9,8 @@
 <body>
     <div id="container">
         <div id="output">
-            <input type="text">
-            <input value="refresh" type="button">
+            <input type="text" id="result">
+            <input value="refresh" type="button" onclick="generatePassword()">
             <input type="button" value="kopiuj">
         </div>
         
@@ -21,10 +21,10 @@
         </div>
 
         <div class="characterCheckbox">Użyte znaki:</div>
-        <div class="characterCheckbox">ABC <input type="checkbox" checked  onchange="changeStatus(0), generatePassword(length)"></div>
-        <div class="characterCheckbox">abc <input type="checkbox" checked onchange="changeStatus(1), generatePassword(length)"></div>
-        <div class="characterCheckbox">123 <input type="checkbox" checked onchange="changeStatus(2), generatePassword(length)"></div>
-        <div class="characterCheckbox">#@% <input type="checkbox" onchange="changeStatus(3), generatePassword(length)"></div>
+        <div class="characterCheckbox">abc <input type="checkbox" checked  onchange="changeStatus(0), generatePassword()"></div>
+        <div class="characterCheckbox">ABC <input type="checkbox" checked onchange="changeStatus(1), generatePassword()"></div>
+        <div class="characterCheckbox">123 <input type="checkbox" checked onchange="changeStatus(2), generatePassword()"></div>
+        <div class="characterCheckbox">#@% <input type="checkbox" onchange="changeStatus(3), generatePassword()"></div>
     </div>
     <script src="script.js"></script>
 </body>
