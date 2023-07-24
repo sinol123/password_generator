@@ -11,12 +11,12 @@
         <div id="output">
             <input type="text" id="result">
             <input value="refresh" type="button" onclick="generatePassword()">
-            <input type="button" value="kopiuj">
+            <input type="button" value="kopiuj" onclick="copy()">
         </div>
         
         <div id="passwordLength"><div id="lengthInfo">długość hasła: 12</div>
             <input type="button" value="-" id="minus" onclick="changeLength('minus')">
-            <input type="range" min="1" value="12" max="50" id="range" onchange="changeLength(value)">
+            <input type="range" min="1" value="12" max="50" id="range" oninput="changeLength(value)">
             <input type="button" value="+" id="plus" onclick="changeLength('plus')">
         </div>
 

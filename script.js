@@ -1,3 +1,5 @@
+let password = "";
+
 const characterPool = [ 
     abc = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
     ABC = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
@@ -10,8 +12,8 @@ let passwordParameters = [abcStatus = true, ABCstatus = true, numbersStatus = tr
 
 function generatePassword(){
 
+    password = "";
     let choosenCharacterPool = [];
-    let password = "";
 
     for(i = 0; i < 4; i++){
         if(passwordParameters[i] == true){
@@ -47,6 +49,8 @@ function changeLength(a){
                 length++;
                 document.getElementById("lengthInfo").innerText = "długość hasła: " + length;
                 document.getElementById("range").value = length;
+                passwordParameters[4] = length;
+                generatePassword()
             }
             break
         case "minus":
@@ -57,15 +61,23 @@ function changeLength(a){
                 length--;
                 document.getElementById("lengthInfo").innerText = "długość hasła: " + length;
                 document.getElementById("range").value = length;
+                passwordParameters[4] = length;
+                generatePassword()
             }
             break
         default:
             length = a;
             document.getElementById("lengthInfo").innerText = "długość hasła: " + length;
-
+            passwordParameters[4] = length;
+            generatePassword()
 
     }
         
+    }
+
+    function copy(){
+        navigator.clipboard.writeText(password);
+        alert("skopiowano hasło: " + password);
     }
 
 
