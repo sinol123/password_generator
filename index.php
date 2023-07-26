@@ -3,7 +3,7 @@
 #connectToDb
 $servername = "localhost";
 $username = "root";
-$password = "";
+$dbpassword = "";
 $dbname = "generator";
 $conn = mysqli_connect($servername, $username, $dbpassword, $dbname);
 
@@ -59,7 +59,17 @@ if(isset($_POST['logout'])){
     <div id="passwords">
         <h2>Twoje hasła:</h2>
         <?php
-        
+            $userId = $_SESSION['id'];
+            $query = "SELECT * FROM passwords where userId = '$userId'";
+            $result = mysqli_query($conn, $query);
+
+            while($row = mysqli_fetch_assoc($result)){
+                echo "<div>
+                        <p>witryna: ". $row['website'] . "</p>
+                        <p>nick: ". $row['nickname'] . "</p>
+                        <p>hasło: ". $row['password'] . "</p>
+                    </div>";
+            }
         ?>
     </div>
     <script src="script.js"></script>

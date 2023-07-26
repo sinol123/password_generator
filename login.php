@@ -37,13 +37,14 @@ if(isset($_SESSION['nickname'])){
                     $dbname = "generator";
                 
                     $conn = mysqli_connect($servername, $username, $dbpassword, $dbname);
-                    $sql = "SELECT nickname, password FROM users WHERE nickname = '$nickname' AND password= '$shaPassword'";
+                    $sql = "SELECT id, nickname, password FROM users WHERE nickname = '$nickname' AND password= '$shaPassword'";
                     $result = mysqli_query($conn, $sql);
                 
                     if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result) ) {
                             session_start();
-                            $_SESSION['nickname'] = "Jesteś zalogowany jako: ". $row["nickname"];
+                            $_SESSION['nickname'] = $row["nickname"];
+                            $_SESSION['id'] = $row['id'];
                         }
                         header("Location: index.php");
                     }
