@@ -1,3 +1,29 @@
+<?php
+
+#connectToDb
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "generator";
+$conn = mysqli_connect($servername, $username, $dbpassword, $dbname);
+
+#login check
+session_start();
+if(isset($_SESSION['nickname'])){
+    
+}
+else{
+    header("Location: login.php");
+}
+
+#logout
+if(isset($_POST['logout'])){
+    session_destroy();
+    exit('zostałeś wylogowany');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="epl">
 <head>
@@ -7,11 +33,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="toolbar">
+        <p id="nickname">jesteś zalogowany jako: <input type="button" value="wyloguj"></p>
+    </div>
     <div id="container">
         <div id="output">
             <input type="text" id="result">
             <input value="refresh" type="button" onclick="generatePassword()">
             <input type="button" value="kopiuj" onclick="copy()">
+            <input type="button" value="zapisz" onclick="save()">
         </div>
         
         <div id="passwordLength"><div id="lengthInfo">długość hasła: 12</div>
@@ -25,6 +55,12 @@
         <div class="characterCheckbox">ABC <input type="checkbox" checked onchange="changeStatus(1), generatePassword()"></div>
         <div class="characterCheckbox">123 <input type="checkbox" checked onchange="changeStatus(2), generatePassword()"></div>
         <div class="characterCheckbox">#@% <input type="checkbox" onchange="changeStatus(3), generatePassword()"></div>
+    </div>
+    <div id="passwords">
+        <h2>Twoje hasła:</h2>
+        <?php
+        
+        ?>
     </div>
     <script src="script.js"></script>
 </body>
