@@ -22,6 +22,19 @@ if(isset($_POST['logout'])){
     exit('zostałeś wylogowany');
 }
 
+
+#savePassword
+                
+if(isset($_POST['nickToSave']) && isset($_POST['website'])){
+                    
+    $website = $_POST['website'];
+    $nickToSave = $_POST['nickToSave'];
+    $password = $_POST['password'];
+    $userId = $_SESSION['id'];
+    $sql = "INSERT INTO passwords (id, website, nickname, password, userId) VALUES (NULL, '$website', '$nickToSave', '$password', '$userId');";
+
+    mysqli_query($conn, $sql);
+}
 ?>
 
 <!DOCTYPE html>
@@ -65,13 +78,25 @@ if(isset($_POST['logout'])){
 
             while($row = mysqli_fetch_assoc($result)){
                 echo "<div>
-                        <p>witryna: ". $row['website'] . "</p>
-                        <p>nick: ". $row['nickname'] . "</p>
-                        <p>hasło: ". $row['password'] . "</p>
+                        <p>witryna: " . $row['website'] . "</p>
+                        <p>nick: " . $row['nickname'] . "</p>
+                        <p>hasło: " . $row['password'] . "</p>
                     </div>";
             }
+
+
         ?>
     </div>
+
+    <div id="popup">
+        <form action="index.php" method="POST">
+            <input id="hiddenInput" type="hidden" name="password">
+            <p>podaj witryne <input type="text" name="website"></p>
+            <p>podaj nick: <input type="text" name="nickToSave"></p>
+            <p><input value="zapisz" type="submit"></p>
+        </form>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

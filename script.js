@@ -71,15 +71,20 @@ function changeLength(a){
             passwordParameters[4] = length;
             generatePassword()
 
-    }
+        }
         
     }
 
     function copy(){
-        navigator.clipboard.writeText(password);
-        alert("skopiowano hasło: " + password);
+        navigator.clipboard.writeText(document.getElementById("result").value);
+        alert("skopiowano hasło: " + document.getElementById("result").value);
     }
 
+    function save(){
 
+        document.getElementById("popup").style.zIndex = 1;
+        document.getElementById("popup").style.opacity = 1;
+        document.getElementById("hiddenInput").value = password;
+    }
 
     generatePassword();

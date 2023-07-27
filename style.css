@@ -9,3 +9,9 @@
     width: 20%;
     float: left;
 }
+
+#popup{
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 1s;
+}
